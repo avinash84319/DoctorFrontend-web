@@ -10,7 +10,7 @@ function Login() {
 
     const loginclick = () => {
         console.log('Login button clicked');
-        window.location.href = '/home';
+        window.location.href = '/otp';
     }
 
     return (
