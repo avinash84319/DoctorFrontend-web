@@ -20,7 +20,7 @@ function Login() {
 
             <form className='login-form'>
                 <div className='textbox'>
-                    <h2 className='login-user-h'>Email Adress</h2>
+                    <h2 className='login-user-h'>Email Address</h2>
                     <input type='text' placeholder='example@gmail.com' className='login-input' />
                 </div>
                 <div className='textbox'>

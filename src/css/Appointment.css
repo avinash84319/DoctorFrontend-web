@@ -1,0 +1,120 @@
+.appointment{
+    display: grid;
+    background-color: #f5f5f5;
+    grid-template-rows: 1fr 7fr;
+    grid-template-columns: 4.5fr 2fr;
+}
+
+.queue{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: #9FD3FF;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+}
+
+.patient{
+    background-color: #ffffff;
+    color:#9FD3FF;
+    border-radius: 10px;
+    padding:10px;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-color: #9FD3FF;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.main{
+    grid-row: 2/3;
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: 1.5fr 3fr 2fr;
+    grid-template-rows: 1.5fr 1fr;
+    height: 620px;
+}
+
+.medicines{
+    grid-column: 2/3;
+    grid-row: 1/3;
+    background-color: #9FD3FF;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.prescription{
+    grid-column: 1/2;
+    grid-row: 1/3;
+    background-color: #9FD3FF;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.submit-presc{
+    margin-top: 40px;
+    width: 180px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: #516BFF;
+    font-size: 20px;
+}
+
+.medical-history{
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background-color: #9FD3FF;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.analysis{
+    grid-column: 3/4;
+    grid-row: 2/3;
+    background-color: #9FD3FF;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+.medicine-search-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.medicine-search{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
