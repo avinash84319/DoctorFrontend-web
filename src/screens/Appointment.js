@@ -3,6 +3,8 @@ import '../css/Appointment.css';
 import React, { useState } from 'react';
 import Analysis from '../components/Analysis';
 import EarlyAnalysis from '../components/EarlyAnalysis';
+import Smedicines from '../components/Smedicines';
+import Medicines from '../components/Medicines';
 
 function Appointment() {
 
@@ -108,33 +110,6 @@ function Appointment() {
             div.className='selected-class'
     }
 
-    const Medicines = () => {                                                                     // diplays medicines
-        return medicines.map((medicine) => {
-            return <div className='medicine'>
-            <button onClick={addmed} value={medicine.name} className='add-medicine' >✅</button>
-            <h1 className='medicine-name'>{medicine.name}</h1>
-            <button onClick={addmed} value={medicine.name} className='medicine-button' >🌄</button>                       
-            <button onClick={addmed} value={medicine.name} className='medicine-button' >🕛</button>
-            <button onClick={addmed} value={medicine.name} className='medicine-button' >🌙</button>
-            <button onClick={addmed} value={medicine.name} className='medicine-button-2' >Before Food</button>
-            <button onClick={addmed} value={medicine.name} className='medicine-button-2' >After Food</button>
-            </div>
-        })
-    }
-
-    const Smedicines = () => {                                             // displays selected medicines or prescription
-        return smedicines.map((smedicine) => {
-            return <div className='medicine'>
-            <button onClick={addmed} value={smedicine.name} className='add-medicine' >❌</button>
-            <h1 className='medicine-name'>{smedicine.name}</h1>
-            {smedicine.values.map((values)=>{
-                return <button onClick={addmed} value={smedicine.name} className='medicine-show' >{values}</button>
-            })}
-            </div>
-        })
-    }
-
-
     return (
         <div className="appointment">
             <div className='queue'>
@@ -150,7 +125,7 @@ function Appointment() {
                 <div className="prescription">
                     <button onClick={changeclass} className='partition-but' value="prescription">Prescription</button>
                     <div className='prescription-div'>
-                        <Smedicines />
+                        <Smedicines addmed={addmed} smedicines={smedicines} />
                     </div>
                     <input type='button' value='Send' className='submit-presc' />
                 </div>
@@ -160,7 +135,7 @@ function Appointment() {
                         <div className='search-icon'></div>
                     </div>
                     <div className='medicine-div'>
-                        <Medicines />
+                        <Medicines addmed={addmed} medicines={medicines} />
                     </div>
                 </div>
                 <div className='medical-history'>
