@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import '../css/Appointment.css';
 import React, { useState } from 'react';
+import Analysis from '../components/Analysis';
+import EarlyAnalysis from '../components/EarlyAnalysis';
 
 function Appointment() {
 
@@ -162,10 +164,12 @@ function Appointment() {
                     </div>
                 </div>
                 <div className='medical-history'>
-                    <button onClick={changeclass} className='partition-but' value='medical-history'>Medical History</button>
+                    <button onClick={changeclass} className='partition-but' value='medical-history'>Early Analysis</button>
+                    <EarlyAnalysis />
                 </div>
                 <div className='analysis'>
                     <button onClick={changeclass} className='partition-but' value='analysis'>Analysis</button>
+                    <Analysis />
                 </div>
             </div>
         </div>
