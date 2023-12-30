@@ -21,28 +21,28 @@ function Appointment() {
             }
         }
         if (flag===1){
-            removemedicine(medicine)
-            let newmedicines=smedicines.filter((smedicine)=>smedicine.name!==medicine.name)
-            if (medicine.values.length!==0){
+            removemedicine(medicine)        // remove medicine from smedicines
+            let newmedicines=smedicines.filter((smedicine)=>smedicine.name!==medicine.name)                      // just keeping a copy of smedicines
+            if (medicine.values.length!==0){                                   // if medicine has values
                 if (store.values.length!==0){
-                    store.values=[...store.values,...medicine.values];
+                    store.values=[...store.values,...medicine.values];         // add values to store
                     // if any value is repeated then remove it
                     let newvalues=[];
                     for (let i=0;i<store.values.length;i++){
-                        if (!newvalues.includes(store.values[i]))
+                        if (!newvalues.includes(store.values[i]))                     // if value is not present then add it
                             newvalues.push(store.values[i])
                         else {
                             // remove the value
-                            let index=newvalues.indexOf(store.values[i]);
-                            newvalues.splice(index,1);
+                            let index=newvalues.indexOf(store.values[i]);          // find index of value
+                            newvalues.splice(index,1);                         // remove the value
                         }
                     }
                     store.values=newvalues;
-                    setsMedicines([...newmedicines,store])
+                    setsMedicines([...newmedicines,store])                   // add store to smedicines
                 }
                 else{
                     store.values=medicine.values;
-                    setsMedicines([...newmedicines,store])
+                    setsMedicines([...newmedicines,store])                  // add store to smedicines
                 }
             }
         }
@@ -52,46 +52,26 @@ function Appointment() {
 
     function removemedicine(medicine){
         // remove medicine from smedicines
-        let newmedicines=smedicines.filter((smedicine)=>smedicine.name!==medicine.name)
-        setsMedicines([...newmedicines])
+        let newmedicines=smedicines.filter((smedicine)=>smedicine.name!==medicine.name)          // remove medicine from smedicines
+        setsMedicines([...newmedicines])                                                      // add store to smedicines
     }
 
-    const addmed = (e) => {
+    const addmed = (e) => {                                                       // function to handle buttons in medicines
         if (e.target.innerHTML === '✅' || e.target.innerHTML === '❌'){
             // add medicine to smedicines
             let butt=e.target;
             butt.className='added-medicine';
             selectmedicine({name:e.target.value,values:[]})
         }
-        else if (e.target.innerHTML === '🌄'){
+        else{                                                               // add value to medicine
             let medicine=e.target.value;
-            medicine={name:medicine,values:['🌄']}
-            selectmedicine(medicine)
-        }
-        else if (e.target.innerHTML === '🕛'){
-            let medicine=e.target.value;
-            medicine={name:medicine,values:['🕛']}
-            selectmedicine(medicine)
-        }
-        else if (e.target.innerHTML === '🌙'){
-            let medicine=e.target.value;
-            medicine={name:medicine,values:['🌙']}
-            selectmedicine(medicine)
-        }
-        else if (e.target.innerHTML === 'Before Food'){
-            let medicine=e.target.value;
-            medicine={name:medicine,values:['Before Food']}
-            selectmedicine(medicine)
-        }
-        else if (e.target.innerHTML === 'After Food'){
-            let medicine=e.target.value;
-            medicine={name:medicine,values:['After Food']}
+            medicine={name:medicine,values:[e.target.innerHTML]}           // medicine object
             selectmedicine(medicine)
         }
     }
 
     const arr = [
-        { name: "avinash" },
+        { name: "avinash" },                 // patient names
         { name: "subbu" },
         { name: "dixth" },
         { name: "sanjay" }
@@ -106,7 +86,7 @@ function Appointment() {
     const medicines = [
         { name: "paracetamol" },
         { name: "crocin" },
-        { name: "dolo" },
+        { name: "dolo" },                                //medicines list to be displayed
         { name: "combiflam" },
         { name: "dolopar" },
         { name: "dolokind" },
@@ -121,17 +101,17 @@ function Appointment() {
         const btn=e.target;
         const div=btn.closest('div');
         if (div.className==='selected-class')
-            div.className=btn.value
+            div.className=btn.value                                // change class of div in the main grid to make that section bigger
         else
             div.className='selected-class'
     }
 
-    const Medicines = () => {
+    const Medicines = () => {                                                                     // diplays medicines
         return medicines.map((medicine) => {
             return <div className='medicine'>
             <button onClick={addmed} value={medicine.name} className='add-medicine' >✅</button>
             <h1 className='medicine-name'>{medicine.name}</h1>
-            <button onClick={addmed} value={medicine.name} className='medicine-button' >🌄</button>
+            <button onClick={addmed} value={medicine.name} className='medicine-button' >🌄</button>                       
             <button onClick={addmed} value={medicine.name} className='medicine-button' >🕛</button>
             <button onClick={addmed} value={medicine.name} className='medicine-button' >🌙</button>
             <button onClick={addmed} value={medicine.name} className='medicine-button-2' >Before Food</button>
@@ -140,7 +120,7 @@ function Appointment() {
         })
     }
 
-    const Smedicines = () => {
+    const Smedicines = () => {                                             // displays selected medicines or prescription
         return smedicines.map((smedicine) => {
             return <div className='medicine'>
             <button onClick={addmed} value={smedicine.name} className='add-medicine' >❌</button>
