@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../css/Appointment.css';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Analysis from '../components/Analysis';
 import EarlyAnalysis from '../components/EarlyAnalysis';
 import Smedicines from '../components/Smedicines';
@@ -8,8 +8,49 @@ import Medicines from '../components/Medicines';
 
 function Appointment() {
 
-    const [smedicines,setsMedicines]=useState([])
+    const listmedicines = [
+        { name: "paracetamol" },
+        { name: "crocin" },
+        { name: "dolo" },                                //medicines list to be displayed
+        { name: "combiflam" },
+        { name: "dolopar" },
+        { name: "dolokind" },
+        { name: "dolokind plus" },
+        { name: "dolokind spas" },
+        { name: "dolokind mr" },
+        { name: "dolokind plus mr" },
+        { name: "dolokind spas mr" },
+    ]
 
+    const [smedicines,setsMedicines]=useState([])
+    const [medicines,setMedicines]=useState(listmedicines)
+    const [searchtext,setSearchtext]=useState('')
+
+    const changeSearch=(e)=>{
+        setSearchtext(e.target.value)
+    }
+
+    useEffect(()=>{            // minimize the list in medicines according to searchtext
+
+        const listmedicines = [
+            { name: "paracetamol" },
+            { name: "crocin" },
+            { name: "dolo" },                                //medicines list to be displayed
+            { name: "combiflam" },
+            { name: "dolopar" },
+            { name: "dolokind" },
+            { name: "dolokind plus" },
+            { name: "dolokind spas" },
+            { name: "dolokind mr" },
+            { name: "dolokind plus mr" },
+            { name: "dolokind spas mr" },
+        ]
+        
+        let newmedicines=listmedicines.filter((medicine)=>medicine.name.toLowerCase().includes(searchtext.toLowerCase()))
+        setMedicines([...newmedicines])
+    },[searchtext])
+
+    
 
     function selectmedicine(medicine){
         // first check if medicine is already present in smedicines
@@ -83,7 +124,7 @@ function Appointment() {
 
     const addmed = (e) => {    
         console.log(e.target.innerHTML)                                                   // function to handle buttons in medicines
-        if (e.target.innerHTML === '✅' || e.target.innerHTML === '❌'){
+        if (e.target.innerHTML === '✅' ){
             // add medicine to smedicines
             // let butt=e.target;
             // if (butt.className==='add-medicine')
@@ -93,10 +134,13 @@ function Appointment() {
             // }
             selectmedicine({name:e.target.value,values:[],count:+1})
         }
-        else if (e.target.innerHTML==='+'){        // add value to medicine
+        else if (e.target.innerHTML === '❌'){
+            selectmedicine({name:e.target.value,values:[],count:-1})
+        }
+        else if (e.target.innerHTML==='+'){        // increase the count
             selectmedicine({name:e.target.value,values:[],count:+1})
         }
-        else if (e.target.innerHTML==='-'){        // add value to medicine
+        else if (e.target.innerHTML==='-'){        // decrease the count
             selectmedicine({name:e.target.value,values:[],count:-1})
         }
         else{                                                           // add value to medicine
@@ -135,20 +179,6 @@ function Appointment() {
         })
     }
 
-    const medicines = [
-        { name: "paracetamol" },
-        { name: "crocin" },
-        { name: "dolo" },                                //medicines list to be displayed
-        { name: "combiflam" },
-        { name: "dolopar" },
-        { name: "dolokind" },
-        { name: "dolokind plus" },
-        { name: "dolokind spas" },
-        { name: "dolokind mr" },
-        { name: "dolokind plus mr" },
-        { name: "dolokind spas mr" },
-    ]
-
     const changeclass = (e) => {
         const btn=e.target;
         const div=btn.closest('div');
@@ -179,7 +209,7 @@ function Appointment() {
                 </div>
                 <div className='medicines'>
                     <div className='medicine-search-div'>
-                        <input type="text" placeholder="Search Medicine" className='medicine-search' />
+                        <input type="text" placeholder="Search Medicine" className='medicine-search' value={searchtext} onChange={changeSearch} />
                         <div className='search-icon'></div>
                     </div>
                     <div className='medicine-div'>
