@@ -10,6 +10,7 @@ const Smedicines = (prop) => {                                             // di
         {smedicine.values.map((values)=>{
             return <button onClick={addmed} value={smedicine.name} className='medicine-show' >{values}</button>
         })}
+        <button value={smedicine.name} className='medicine-button-3' >{smedicine.count}</button>
         </div>
     })
 }

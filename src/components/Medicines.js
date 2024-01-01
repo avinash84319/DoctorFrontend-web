@@ -12,6 +12,8 @@ const Medicines = (props) => {     // diplays medicines
         <button onClick={addmed} value={medicine.name} className='medicine-button' >🌙</button>
         <button onClick={addmed} value={medicine.name} className='medicine-button-2' >Before Food</button>
         <button onClick={addmed} value={medicine.name} className='medicine-button-2' >After Food</button>
+        <button onClick={addmed} value={medicine.name} className='medicine-button-3' >+</button>
+        <button onClick={addmed} value={medicine.name} className='medicine-button-3' >-</button>
         </div>
     })
 }

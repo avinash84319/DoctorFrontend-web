@@ -49,9 +49,30 @@ function Appointment() {
                     setsMedicines([...newmedicines,store])                  // add store to smedicines
                 }
             }
+            else{
+                store.count=store.count+medicine.count;
+                if (store.count<1){
+                    setsMedicines([...newmedicines])                  // add store to smedicines
+                }
+                else{
+                setsMedicines([...newmedicines,store])                  // add store to smedicines
+                }
+            }
         }
-        else
-            setsMedicines([...smedicines,medicine])
+        else{
+
+            if (medicine.count===+1){           // if count is -1 then remove medicine
+                medicine.count=1;
+                setsMedicines([...smedicines,medicine])
+            }
+            else if(medicine.count===-1){
+                //do nothing
+            }
+            else{
+                medicine.count=1;
+                setsMedicines([...smedicines,medicine])
+            }
+        }
     }
 
     function removemedicine(medicine){
@@ -60,14 +81,41 @@ function Appointment() {
         setsMedicines([...newmedicines])                                                      // add store to smedicines
     }
 
-    const addmed = (e) => {                                                       // function to handle buttons in medicines
+    const addmed = (e) => {    
+        console.log(e.target.innerHTML)                                                   // function to handle buttons in medicines
         if (e.target.innerHTML === '✅' || e.target.innerHTML === '❌'){
             // add medicine to smedicines
-            let butt=e.target;
-            butt.className='added-medicine';
-            selectmedicine({name:e.target.value,values:[]})
+            // let butt=e.target;
+            // if (butt.className==='add-medicine')
+            //     butt.className='added-medicine';
+            // else{
+            //     butt.className='add-medicine'
+            // }
+            selectmedicine({name:e.target.value,values:[],count:+1})
         }
-        else{                                                               // add value to medicine
+        else if (e.target.innerHTML==='+'){        // add value to medicine
+            selectmedicine({name:e.target.value,values:[],count:+1})
+        }
+        else if (e.target.innerHTML==='-'){        // add value to medicine
+            selectmedicine({name:e.target.value,values:[],count:-1})
+        }
+        else{                                                           // add value to medicine
+            // let butt=e.target;
+            // let parentdiv=butt.closest('div')
+            // let classbut=parentdiv.querySelectorAll('button')[0].className
+            // console.log(classbut)
+            // if (classbut==='add-medicine'){
+            //     parentdiv.querySelectorAll('button')[0].className='added-medicine'
+            // }
+            // console.log(butt.className)
+            // if (butt.className==='medicine-button-2'){
+            //     butt.className='added-medicine-2'
+            // }
+            // if (butt.className==='medicine-button')
+            //     butt.className='added-medicine';
+            // else{
+            //     butt.className='medicine-button'
+            // }
             let medicine=e.target.value;
             medicine={name:medicine,values:[e.target.innerHTML]}           // medicine object
             selectmedicine(medicine)
