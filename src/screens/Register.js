@@ -43,7 +43,7 @@ function Register(){
                 <div className='date0fbirth'>
                     <h2 className='reg-name-h'>Date of Birth</h2>
                     <div className='date'>
-                    <img src='/calender.png' className='calender'></img>
+                    <img src='/calender.png' className='calender-img'></img>
                     <input type='text' className='reg-input-date' placeholder='DD'/>
                     <input type='text' className='reg-input-date' placeholder='MM'/>
                     <input type='text' className='reg-input-year' placeholder='YYYY'/>

@@ -23,6 +23,8 @@ function Calender() {
     const [start, setstart] = useState("")
     const [end, setend] = useState("")
 
+    const initdate = new Date('2023-12-31')
+
     const daysdates = [
         { day: "monday", date: "31" },
         { day: "tuesday", date: "1" },
@@ -46,8 +48,37 @@ function Calender() {
         { time: 9 },
         { time: 10 },
         { time: 11 },
-        { time: 12 }
+        { time: 12 },
+        { time: 13 },
+        { time: 14 },
+        { time: 15 },
+        { time: 16 },
+        { time: 17 },
+        { time: 18 },
+        { time: 19 },
+        { time: 20 },
+        { time: 21 },
+        { time: 22 },
+        { time: 23 },
+        { time: 24 },
     ]
+
+    function datetogrid(date){
+        date=new Date(date)
+        console.log(date)
+        let gridate=date.getTime()-initdate.getTime()
+        gridate=Math.floor(gridate/(1000*60*60*24))
+        console.log(gridate)
+        return gridate
+    }
+
+    function gridtodate(gridate){
+        let date=initdate.getTime()+gridate*(1000*60*60*24)
+        date=new Date(date)
+        date=date.toISOString().substring(0,10);
+        console.log(date)
+        return date
+    }
 
     function addevent() {
         if (editdis === "none") {
@@ -103,9 +134,10 @@ function Calender() {
         let endtime = btn.previousSibling.value
         let start = parseInt(starttime)
         let end = parseInt(endtime)
-        let daystart = parseInt(startday)
-        let dayend = parseInt(endday)
+        let daystart = datetogrid(startday)
+        let dayend = datetogrid(endday)
         let event = { daystart, dayend, start, end, desc, name }
+        console.log(event)
         // check if the event is already there
         let store;
         for (let i = 0; i < events.length; i++) {
@@ -161,6 +193,8 @@ function Calender() {
                 setendday={setendday}
                 setstart={setstart}
                 setend={setend}
+                datetogrid={datetogrid}
+                gridtodate={gridtodate}
             />
         </div>
     )
