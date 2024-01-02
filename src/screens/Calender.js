@@ -23,7 +23,9 @@ function Calender() {
     const [start, setstart] = useState("")
     const [end, setend] = useState("")
 
-    const initdate = new Date('2023-12-31')
+    const strinitdate = '2023-12-31'
+    const strfinaldate = '2024-01-06'
+    const initdate = new Date(strinitdate)
 
     const daysdates = [
         { day: "monday", date: "31" },
@@ -216,6 +218,8 @@ function Calender() {
                 gridtodate={gridtodate}
                 gridtotime={gridtotime}
                 timetogrid={timetogrid}
+                strinitdate={strinitdate}
+                strfinaldate={strfinaldate}
             />
         </div>
     )

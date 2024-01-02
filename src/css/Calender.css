@@ -11,6 +11,7 @@
 }
 
 .cal-header-add-btn{
+    position: fixed;
     border-radius:50px;
     background-color:#516BFF;
 }
