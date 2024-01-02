@@ -1,18 +1,37 @@
-function Eventeditor(props){
+const React = require('react');
 
-    const editdis=props.editdis
-    const submitEvent=props.submitEvent
-    
-    return <div className="cal-event-editor" style={{"display":editdis}}>
-            <h1>Event Editor</h1>
-            <input type="text"  placeholder="Event Name"></input>
-            <input type="text"  placeholder="Event Description"></input>
-            <input type="text"  placeholder="Event Start Day"></input>
-            <input type="text"  placeholder="Event End Day"></input>
-            <input type="text"  placeholder="Event Start Time"></input>
-            <input type="text"  placeholder="Event End Time"></input>
-            <button onClick={submitEvent}>Submit</button>
-        </div>
+
+function Eventeditor(props) {
+
+    const editdis = props.editdis
+    const seteditdis = props.seteditdis
+    const submitEvent = props.submitEvent
+    const deleteEvent = props.deleteEvent
+    const name = props.name
+    const desc = props.desc
+    const start = props.start
+    const end = props.end
+    const daystart = props.daystart
+    const dayend = props.dayend
+    const setname = props.setname
+    const setdesc = props.setdesc
+    const setstart = props.setstart
+    const setend = props.setend
+    const setstartday = props.setstartday
+    const setendday = props.setendday
+
+    return <div className="cal-event-editor" style={{ "display": editdis }}>
+        <button className="cal-event-editor-close" onClick={() => { seteditdis("none") }}>❌</button>
+        <h1>Event Editor</h1>
+        <input type="text" onChange={(e) => setname(e.target.value)} value={name} placeholder="Name"></input>
+        <input type="text" onChange={(e) => setdesc(e.target.value)} value={desc} placeholder="Description"></input>
+        <input type="text" onChange={(e) => setstartday(e.target.value)} value={daystart} placeholder="Start Day"></input>
+        <input type="text" onChange={(e) => setendday(e.target.value)} value={dayend} placeholder="End Day"></input>
+        <input type="text" onChange={(e) => setstart(e.target.value)} value={start} placeholder="Start Time"></input>
+        <input type="text" onChange={(e) => setend(e.target.value)} value={end} placeholder="End Time"></input>
+        <button onClick={submitEvent}>Submit</button>
+        <button onClick={deleteEvent}>Delete</button>
+    </div>
 }
 
 export default Eventeditor;
