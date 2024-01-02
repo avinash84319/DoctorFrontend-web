@@ -39,7 +39,12 @@
     grid-column: 1/2;
 }
 
+/* .cal-row-starter-h{
+    color: #516BFF;
+} */
+
 .cal-event-div{
+    height: 100%;
     background-color: #0b8043;
     border-radius: 10px;
     margin: 10px;
@@ -59,7 +64,7 @@
     background-color: rgb(255, 255, 255);
     height: 400px;
     width: 400px;
-    position: absolute;
+    position: fixed;
     z-index: 20;
     top:35%;
     left: 35%;

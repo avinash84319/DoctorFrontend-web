@@ -32,7 +32,7 @@ function Calender() {
         { day: "thursday", date: "3" },
         { day: "friday", date: "4" },
         { day: "saturday", date: "5" },
-        { day: "sunday", date: "6" }
+        { day: "sunday", date: "6" },
     ]
 
     const times = [
@@ -68,7 +68,6 @@ function Calender() {
         console.log(date)
         let gridate=date.getTime()-initdate.getTime()
         gridate=Math.floor(gridate/(1000*60*60*24))
-        console.log(gridate)
         return gridate
     }
 
@@ -76,8 +75,25 @@ function Calender() {
         let date=initdate.getTime()+gridate*(1000*60*60*24)
         date=new Date(date)
         date=date.toISOString().substring(0,10);
-        console.log(date)
         return date
+    }
+
+    function gridtotime(gridtime){
+        console.log(gridtime)
+        if (gridtime<10 && gridtime[0]!=="0"){
+            gridtime="0"+gridtime
+        }
+        let time=gridtime+":00:00"
+        console.log(time)
+        return time
+    }
+
+    function timetogrid(time){
+        time=time.substring(0,2)
+        // if (time[0]==="0"){
+        //     time=time[1]
+        // }
+        return time
     }
 
     function addevent() {
@@ -132,21 +148,24 @@ function Calender() {
         let endday = btn.previousSibling.previousSibling.previousSibling.value
         let starttime = btn.previousSibling.previousSibling.value
         let endtime = btn.previousSibling.value
-        let start = parseInt(starttime)
-        let end = parseInt(endtime)
+        let start = timetogrid(starttime)
+        let end = timetogrid(endtime)
         let daystart = datetogrid(startday)
         let dayend = datetogrid(endday)
         let event = { daystart, dayend, start, end, desc, name }
         console.log(event)
         // check if the event is already there
-        let store;
+        let store="";
         for (let i = 0; i < events.length; i++) {
             if (events[i].name === name) {
                 store = events[i]
                 events.splice(i, 1)
             }
         }
-        if (name===store.name && desc===store.desc && start===store.start && end===store.end && daystart===store.daystart && dayend===store.dayend){
+        if (store===""){
+            setevents([...events, event])
+        }
+        else if(name===store.name && desc===store.desc && start===store.start && end===store.end && daystart===store.daystart && dayend===store.dayend){
             alert("Event already exists")
             setevents([...events, store])
         }
@@ -195,6 +214,8 @@ function Calender() {
                 setend={setend}
                 datetogrid={datetogrid}
                 gridtodate={gridtodate}
+                gridtotime={gridtotime}
+                timetogrid={timetogrid}
             />
         </div>
     )

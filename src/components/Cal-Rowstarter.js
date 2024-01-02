@@ -4,7 +4,7 @@ function Rowstarter(props){
     
     return times.map((time)=>{
     return <div className="cal-row-starter">
-            <h1>{time.time}</h1>
+            <h1 className="cal-row-starter-h">{time.time}</h1>
             </div>
 }
 )}
