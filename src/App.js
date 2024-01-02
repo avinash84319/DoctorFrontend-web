@@ -6,6 +6,7 @@ import Register from './screens/Register';
 import Otp from './screens/Otp';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Appointment from './screens/Appointment';
+import Calender from './screens/Calender';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/otp" element=<Otp /> />
       <Route path="/register" element=<Register /> />
       <Route path="/apt" element=<Appointment /> />
+      <Route path="/cal" element=<Calender /> />
     </Routes>
     </BrowserRouter>
     </div>
