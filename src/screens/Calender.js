@@ -101,10 +101,10 @@ function Calender() {
         let endday = btn.previousSibling.previousSibling.previousSibling.value
         let starttime = btn.previousSibling.previousSibling.value
         let endtime = btn.previousSibling.value
-        let start = parseInt(starttime) + 2
-        let end = parseInt(endtime) + 2
-        let daystart = parseInt(startday) + 2
-        let dayend = parseInt(endday) + 2
+        let start = parseInt(starttime)
+        let end = parseInt(endtime)
+        let daystart = parseInt(startday)
+        let dayend = parseInt(endday)
         let event = { daystart, dayend, start, end, desc, name }
         // check if the event is already there
         let store;
@@ -114,7 +114,7 @@ function Calender() {
                 events.splice(i, 1)
             }
         }
-        if (name===store.name && desc===store.desc && start===store.start+2 && end===store.end+2 && daystart===store.daystart+2 && dayend===store.dayend+2){
+        if (name===store.name && desc===store.desc && start===store.start && end===store.end && daystart===store.daystart && dayend===store.dayend){
             alert("Event already exists")
             setevents([...events, store])
         }
