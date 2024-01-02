@@ -107,12 +107,20 @@ function Calender() {
         let dayend = parseInt(endday) + 2
         let event = { daystart, dayend, start, end, desc, name }
         // check if the event is already there
+        let store;
         for (let i = 0; i < events.length; i++) {
             if (events[i].name === name) {
+                store = events[i]
                 events.splice(i, 1)
             }
         }
-        setevents([...events, event])
+        if (name===store.name && desc===store.desc && start===store.start+2 && end===store.end+2 && daystart===store.daystart+2 && dayend===store.dayend+2){
+            alert("Event already exists")
+            setevents([...events, store])
+        }
+        else{
+            setevents([...events, event])
+        }
         seteditdis("none")
     }
 
