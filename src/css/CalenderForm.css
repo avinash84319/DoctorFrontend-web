@@ -1,0 +1,41 @@
+.calender-form {
+  background-color: aliceblue;
+  margin: 5px;
+}
+
+.cal-form-instruction{
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cal-form-button-addrem{
+    margin-top: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #516BFF;
+    color: white;
+    font-size: 20px;
+}
+
+.cal-form-input-hos{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.7fr 1fr 1fr;
+}
+
+.cal-form-input{
+    border: 2px solid #516BFF;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.cal-form-color{
+    border: 2px solid #516BFF;
+    margin: 10px;
+}

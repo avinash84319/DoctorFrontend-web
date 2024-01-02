@@ -1,0 +1,58 @@
+body{
+    background-color: #516BFF;
+}
+
+.Otp-box{
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+
+.Otp-form{
+    margin-top: 50px;
+}
+
+.Otp-h-1{
+    color: rgb(255, 255, 255);
+    font-size:32px;
+    margin:0px;
+}
+
+.Otp-h-2{
+    color: rgb(255, 255, 255);
+    font-size:15px;
+    margin:15px;
+}
+
+.Otp-h-3{
+    color: rgb(255, 255, 255);
+    font-size:15px;
+    margin:15px;
+}
+
+.Otp-h-3:hover{
+    color: rgb(255, 255, 255);
+    font-size:17px;
+    
+}
+
+.Otp-input{
+    width: 286px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+.Otp-button-1{
+    margin-top: 70px;
+    width: 180px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: #516BFF;
+    font-size: 20px;
+}

@@ -1,0 +1,83 @@
+.calender{
+    width: 100%;
+    height: 100%;
+    margin:0px;
+    background-color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+    grid-template-rows:repeat(12, 1fr);
+}
+
+.cal-header-add-btn{
+    position: fixed;
+    border-radius:50px;
+    background-color:#516BFF;
+}
+
+.cal-header-add-btn:hover{
+    background-color:#3A4CFF;
+}
+
+.cal-header-add{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cal-header-date{
+    font-size: 26px;
+}
+
+.cal-header-day{
+    font-size: 11px;
+}
+
+.cal-row-starter{
+    grid-column: 1/2;
+}
+
+/* .cal-row-starter-h{
+    color: #516BFF;
+} */
+
+.cal-event-div{
+    height: 100%;
+    background-color: #0b8043;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.cal-event-div:hover{
+    background-color: #8fb88f;
+}
+
+.cal-event-h{
+    font-size:15px;
+    color: white;
+}
+
+.cal-event-editor{
+    background-color: rgb(255, 255, 255);
+    height: 400px;
+    width: 400px;
+    position: fixed;
+    z-index: 20;
+    top:35%;
+    left: 35%;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cal-event-editor-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
