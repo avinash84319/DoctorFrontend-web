@@ -8,6 +8,15 @@ import Medicines from '../components/Medicines';
 
 function Appointment() {
 
+    const [patientID, setPatientID] = useState('0123445');        // patient name
+
+    const listpatients = [
+        { name:"avinash",id:"0123445" },                 // patient names
+        { name:"subbu",id:"0123446" },
+        { name:"dixth",id:"0123447" },
+        { name:"sanjay",id:"0123448" }
+    ]
+
     const listmedicines = [
         { name: "paracetamol" },
         { name: "crocin" },
@@ -166,16 +175,26 @@ function Appointment() {
         }
     }
 
-    const arr = [
-        { name: "avinash" },                 // patient names
-        { name: "subbu" },
-        { name: "dixth" },
-        { name: "sanjay" }
-    ]
+    const selectpatient = (e) => {
+        // find patient id in listpatients
+        let patientname = e.target.innerHTML;
+        let patientid;
+        for (let i = 0; i < listpatients.length; i++) {
+            if (listpatients[i].name === patientname) {
+                patientid = listpatients[i].id;
+                break;
+            }
+        }
+        setPatientID(patientid);
+
+    };
+
 
     const Patients = () => {
-        return arr.map((patient) => {
-            return <div className='patient'>{patient.name}</div>
+        return listpatients.map((patient) => {
+            if (patient.id === patientID)
+                return <button onClick={selectpatient} className='patient-button-selected'>{patient.name}</button>
+            else return <button onClick={selectpatient} className='patient-button'>{patient.name}</button>
         })
     }
 

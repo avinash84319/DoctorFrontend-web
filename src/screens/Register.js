@@ -44,9 +44,7 @@ function Register(){
                     <h2 className='reg-name-h'>Date of Birth</h2>
                     <div className='date'>
                     <img src='/calender.png' className='calender-img'></img>
-                    <input type='text' className='reg-input-date' placeholder='DD'/>
-                    <input type='text' className='reg-input-date' placeholder='MM'/>
-                    <input type='text' className='reg-input-year' placeholder='YYYY'/>
+                    <input type='date' min="1950-03-18" max="2007-03-18" className='reg-input-date' placeholder='Date-of-birth'/>
                     </div>
                 </div>
 
