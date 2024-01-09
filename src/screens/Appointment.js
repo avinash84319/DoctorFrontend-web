@@ -176,12 +176,15 @@ function Appointment() {
     }
 
     const selectpatient = (e) => {
+        if (!window.confirm("changing patient ...")){             // if user cancels then return
+            return;
+        };
         // find patient id in listpatients
         let patientname = e.target.innerHTML;
         let patientid;
-        for (let i = 0; i < listpatients.length; i++) {
+        for (let i = 0; i < listpatients.length; i++) {                 // find patient id
             if (listpatients[i].name === patientname) {
-                patientid = listpatients[i].id;
+                patientid = listpatients[i].id;                         // set patient id
                 break;
             }
         }
