@@ -58,8 +58,10 @@ function Register() {
     };
 
     const handleSubmitClick = () => {
-        window.location.href = '/Otp';
+        
     };
+
+
 
     return (
         <div className='register'>
@@ -89,8 +91,8 @@ function Register() {
                     <div className='textbox-gender'>
                         <h2 className='reg-name-h'>Sex</h2>
                         <div className='gender'>
-                            <input type='button' className={sex=='Male' ? 'gender-button-selected':'gender-button'} value='Male' onClick={() => setSex('Male')} />
-                            <input type='button' className={sex=='Female' ? 'gender-button-selected':'gender-button'} value='Female' onClick={() => setSex('Female')} />
+                            <input type='button' className={sex==='Male' ? 'gender-button-selected':'gender-button'} value='Male' onClick={() => setSex('Male')} />
+                            <input type='button' className={sex==='Female' ? 'gender-button-selected':'gender-button'} value='Female' onClick={() => setSex('Female')} />
                         </div>
                     </div>
 
