@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Appointment from './screens/Appointment';
 import Calender from './screens/Calender';
 import CalenderForm from './screens/Calender-Form';
+import FavMed from './screens/FavMed';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/apt" element=<Appointment /> />
       <Route path="/cal" element=<Calender /> />
       <Route path="/calform" element=<CalenderForm /> />
+      <Route path="favmed" element=<FavMed /> />
 
     </Routes>
     </BrowserRouter>

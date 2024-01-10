@@ -1,0 +1,120 @@
+.Fav-med{
+    margin-top:10px;
+}
+
+.Fav-title{
+    margin:10px;
+    padding:5px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.Fav-med-main{
+    margin:5px;
+    padding:5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.Fav-med-list{
+    margin:10px;
+    border-radius: 5px;
+    padding:5px;
+    background-color: white;
+    grid-column: 1/2;
+    height: 620px;
+}
+
+.Fav-medicine-list{
+    height: 440px;
+    overflow-y: scroll;
+}
+
+.Fav-med-add{
+    margin:10px;
+    border-radius: 5px;
+    padding:5px;
+    background-color: white;
+    grid-column: 2/3;
+    height: 620px;
+}
+
+.Fav-med-desc{
+    margin:10px;
+    border-radius: 5px;
+    padding:5px;
+    background-color: white;
+    grid-column: 3/4;
+    height: 620px;
+}
+
+.Fav-medicine-list{
+    margin:5px;
+    padding:5px;
+}
+
+.Fav-medicine-name{
+    margin:5px;
+    padding:5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Fav-medicine-div{
+    margin:5px;
+    padding:5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Fav-medicine-name-div{
+   border: 1px solid black;
+   border-radius: 5px;
+   padding:5px;
+   margin:5px;  
+}
+
+.Fav-med-desc{
+    margin:10px;
+    padding:5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Fav-medicine-name-input{
+    margin:5px;
+    padding:5px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid #516BFF;
+    border-radius: 5px;
+}
+
+.Fav-medicine-desc{
+    margin:5px;
+    padding:5px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #516BFF;
+    border-radius: 5px;
+}
+
+.Fav-medicine-desc-btn-div{
+    margin:5px;
+    padding:5px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.Fav-medicine-desc-btn{
+    margin:5px;
+    padding:5px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #516BFF;
+    border-radius: 5px;
+    background-color: #516BFF;
+}

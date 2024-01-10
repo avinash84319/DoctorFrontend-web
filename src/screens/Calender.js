@@ -78,7 +78,7 @@ function Calender() {
         date=new Date(date)
         date=date.toISOString().substring(0,10);
         return date
-    }
+    }        
 
     function gridtotime(gridtime){
         console.log(gridtime)
