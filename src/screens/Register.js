@@ -2,6 +2,41 @@ import '../css/Register.css';
 import React, { useState } from 'react';
 
 function Register() {
+
+    console.log('Register page');
+
+    function sendRegdetails(){
+        fetch('http://localhost:5000/registerForm', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+
+            body: JSON.stringify({
+                    doctor_id:1234,
+                    doctor_name: name,
+                    doctor_sex: sex,
+                    doctor_dob_date : dob.substring(8,10),
+                    doctor_dob_month : dob.substring(5,7),
+                    doctor_dob_year : dob.substring(0,4),
+                    doctor_phone : mobile,
+                    doctor_email : email,
+                    doctor_specialization_id : specialization,
+                    doctor_qualification : qualification,
+                    doctor_years_of_experience : experience,
+                    doctor_description : about
+            }),
+
+        }).then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                window.location.href = '/home';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
     const [name, setName] = useState('');
     const [id, setId] = useState('');
     const [email, setEmail] = useState('');
@@ -58,14 +93,20 @@ function Register() {
     };
 
     const handleSubmitClick = () => {
-        
+        if (name === '' || id === '' || email === '' || mobile === '' || dob === '' || specialization === '' || experience === '' || about === '') {
+            alert('Please fill all the fields');
+        }
+        else {
+            console.log("sending data")
+            sendRegdetails();
+        }
     };
 
 
 
     return (
         <div className='register'>
-            <div className="accountimg"><img src='/account.png' className='accountimg'></img></div>
+            <div className="accountimg"><img src='/account.png' className='accountimg' alt=""></img></div>
 
             <form className='reg-form'>
                 <div className='register-box'>
@@ -99,7 +140,7 @@ function Register() {
                     <div className='date0fbirth'>
                         <h2 className='reg-name-h'>Date of Birth</h2>
                         <div className='date'>
-                            <img src='/calender.png' className='calender-img'></img>
+                            <img src='/calender.png' className='calender-img' alt=""></img>
                             <input type='date' min="1950-03-18" max="2007-03-18" className='reg-input-date' placeholder='Date-of-birth' value={dob} onChange={handleDobChange} />
                         </div>
                     </div>

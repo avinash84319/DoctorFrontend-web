@@ -8,9 +8,9 @@ import React, { useState } from 'react';
 function Calender() {
 
     const [events, setevents] = useState([
-        { daystart: 2, dayend: 3, start: 4, end: 5, desc: "adsda", name: "adadadada" },
-        { daystart: 4, dayend: 5, start: 3, end: 4, desc: "adsda", name: "adadadda" },
-        { daystart: 2, dayend: 3, start: 2, end: 3, desc: "adsda", name: "dadadad" },
+        { daystart: 2, dayend: 3,per:20,her:40, start: "04", end: "05", desc: "adsda", name: "adadadada",color:"red"},
+        { daystart: 4, dayend: 5,per:20,her:40, start: "03", end: "04", desc: "adsda", name: "adadadda",color:"blue"},
+        { daystart: 2, dayend: 3,per:20,her:40, start: "02", end: "03", desc: "adsda", name: "dadadad",color:"green"},
     ])
 
     const [editdis, seteditdis] = useState("none")
@@ -18,10 +18,13 @@ function Calender() {
     // state for all the inputs
     const [name, setname] = useState("")
     const [desc, setdesc] = useState("")
+    const [her, sether] = useState("")
+    const [per, setper] = useState("")
     const [daystart, setstartday] = useState("")
     const [dayend, setendday] = useState("")
-    const [start, setstart] = useState("")
-    const [end, setend] = useState("")
+    const [start, setstart] = useState("04")
+    const [end, setend] = useState("05")
+    const [color, setcolor] = useState("red")
 
     const strinitdate = '2023-12-31'
     const strfinaldate = '2024-01-06'
@@ -80,24 +83,6 @@ function Calender() {
         return date
     }        
 
-    function gridtotime(gridtime){
-        console.log(gridtime)
-        if (gridtime<10 && gridtime[0]!=="0"){
-            gridtime="0"+gridtime
-        }
-        let time=gridtime+":00:00"
-        console.log(time)
-        return time
-    }
-
-    function timetogrid(time){
-        time=time.substring(0,2)
-        // if (time[0]==="0"){
-        //     time=time[1]
-        // }
-        return time
-    }
-
     function addevent() {
         if (editdis === "none") {
             seteditdis("block")
@@ -108,6 +93,7 @@ function Calender() {
             setendday("")
             setstart("")
             setend("")
+            setcolor("")
         }
         else {
             seteditdis("none")
@@ -119,42 +105,56 @@ function Calender() {
         let name = event.innerText
         // search in events for the event with name
         let desc = ""
+        let her = 0
+        let per = 0
         let start = 0
         let end = 0
         let daystart = 0
         let dayend = 0
+        let color = ""
         for (let i = 0; i < events.length; i++) {
             if (events[i].name === name) {
                 desc = events[i].desc
+                her = events[i].her
+                per = events[i].per
                 start = events[i].start
                 end = events[i].end
                 daystart = events[i].daystart
                 dayend = events[i].dayend
+                color = events[i].color
             }
         }
         setname(name)
         setdesc(desc)
+        sether(her)
+        setper(per)
         setstartday(daystart)
         setendday(dayend)
         setstart(start)
         setend(end)
+        setcolor(color)
         seteditdis("block")
     }
 
     const submitEvent = (e) => {
         e.preventDefault()
         let btn = e.target
-        let name = btn.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.value
-        let desc = btn.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.value
-        let startday = btn.previousSibling.previousSibling.previousSibling.previousSibling.value
-        let endday = btn.previousSibling.previousSibling.previousSibling.value
-        let starttime = btn.previousSibling.previousSibling.value
-        let endtime = btn.previousSibling.value
-        let start = timetogrid(starttime)
-        let end = timetogrid(endtime)
+        let name = btn.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.value
+        let desc = btn.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.value
+        let startday = btn.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.value
+        let endday = btn.previousSibling.previousSibling.previousSibling.previousSibling.value
+        let starttime = btn.previousSibling.previousSibling.previousSibling.value
+        let endtime = btn.previousSibling.previousSibling.value
+        let color = btn.previousSibling.value
+        let startt = starttime
+        let endt = endtime
+        let start = startt.substring(0, 2)
+        let end = endt.substring(0, 2)
+        let her = startt.substring(3,5)
+        let per = endt.substring(3,5)
         let daystart = datetogrid(startday)
         let dayend = datetogrid(endday)
-        let event = { daystart, dayend, start, end, desc, name }
+        let event = {her,per,daystart, dayend, start, end, desc, name,color}
         console.log(event)
         // check if the event is already there
         let store="";
@@ -167,7 +167,7 @@ function Calender() {
         if (store===""){
             setevents([...events, event])
         }
-        else if(name===store.name && desc===store.desc && start===store.start && end===store.end && daystart===store.daystart && dayend===store.dayend){
+        else if(name===store.name && desc===store.desc &&her===store.her &&per===store.per && start===store.start && end===store.end && daystart===store.daystart && dayend===store.dayend && color===store.color){
             alert("Event already exists")
             setevents([...events, store])
         }
@@ -204,20 +204,24 @@ function Calender() {
             <Eventeditor editdis={editdis} seteditdis={seteditdis} submitEvent={submitEvent} deleteEvent={deleteEvent}
                 name={name}
                 desc={desc}
+                her={her}
+                per={per}
                 daystart={daystart}
                 dayend={dayend}
                 start={start}
                 end={end}
+                color={color}
                 setname={setname}
                 setdesc={setdesc}
+                sether={sether}
+                setper={setper}
                 setstartday={setstartday}
                 setendday={setendday}
                 setstart={setstart}
                 setend={setend}
+                setcolor={setcolor}
                 datetogrid={datetogrid}
                 gridtodate={gridtodate}
-                gridtotime={gridtotime}
-                timetogrid={timetogrid}
                 strinitdate={strinitdate}
                 strfinaldate={strfinaldate}
             />
