@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Unified Health System (UHS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Unified Health System (UHS) is a comprehensive healthcare solution designed inspired from UPI. UHS integrates all the healthcare servies into one and adds AI technologies to assist patients, healthcare providers, and government agencies in optimizing healthcare services, improving patient outcomes, and ensuring data privacy.
 
-In the project directory, you can run:
+## UHS Flow Diagram
 
-### `npm start`
+<img src="sih flow diagram.png" alt="UHS Logo" width="600" height="400">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## UHS Use Case Diagram
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="Screenshot 2024-09-02 082049.png" alt="UHS UseCase Diagrams" width="500" height="400">
 
-### `npm test`
+## Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Intelligent Appointment Booking
+- **AI-Powered Assistance**: Helps patients book online and offline appointments with the most suitable doctors.
+- **Smart Analysis**: Considers user inputs (symptoms), doctor availability, hospital infrastructure, severity (Red, Yellow & Green), previous medical records, and available government schemes.
 
-### `npm run build`
+### 2. Temporal Forecasting System
+- **Neural Network-Based Prediction**: Predicts consultation durations by analyzing symptomatology and historical patient-doctor interactions.
+- **Efficient Scheduling**: Optimizes doctor schedules by predicting consultation times accurately.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Symptom-Based Patient Clustering
+- **Algorithm-Driven Clustering**: Groups patients with similar symptoms and aligns them with the appropriate physicians.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 4. Recommender System
+- **Specialist Matching**: Suggests the optimal specialist for each patient using historical medical records, current symptoms, doctor availability, and physician performance ratings.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 5. Digital Profiles and Data Privacy
+- **Comprehensive Data Collection**: Gathers data from patients, medical practitioners, hospitals, laboratories, and pharmacies to establish digital profiles.
+- **Privacy-First Approach**: Only collects required data based on individual feature requests, ensuring privacy.
+- **Edge Deployment**: Utilizes edge computing to keep sensitive data on local databases with user consent, ensuring it is never sent to the central system without permission.
 
-### `npm run eject`
+### 6. Medicine Information
+- **Informed Patients**: Provides details about the effects and chemical compositions of medicines prescribed to patients.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 7. Government Reporting
+- **Data Analytics**: Processes data from the UHI ecosystem to generate reports that aid the government in making informed decisions on price-caps, regulations, guidelines, and public health schemes.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 8. Hospital Management System
+- **Streamlined Operations**: Manages doctor scheduling, ambulance tracking, and patient data within hospitals efficiently.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 9. Emergency Response
+- **Crash Detection**: Integrates with smartphone crash detection systems to send emergency alerts to nearby hospitals and ambulances.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 10. Smart Watch Integration
+- **Real-Time Monitoring**: Tracks various patient metrics through smartwatches and responds accordingly.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 11. Chatbot Integration
+- **User-Friendly Interaction**: Incorporates a chatbot for more intuitive and accessible user interactions.
